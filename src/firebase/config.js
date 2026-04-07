@@ -1,13 +1,19 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
+import Constants from 'expo-constants';
+
+const extra =
+  (Constants.expoConfig && Constants.expoConfig.extra) ||
+  (Constants.manifest && Constants.manifest.extra) ||
+  {};
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCAv2RmuLFJyWq_J1AWYOQR2ELufbUVcY0",
-  authDomain: "fiap-auth-mobileapp.firebaseapp.com",
-  projectId: "fiap-auth-mobileapp",
-  storageBucket: "fiap-auth-mobileapp.firebasestorage.app",
-  messagingSenderId: "920985270989",
-  appId: "1:920985270989:web:cee76491d27a3c2a6a8784"
+  apiKey: extra.API_KEY,
+  authDomain: extra.AUTH_DOMAIN,
+  projectId: extra.PROJECT_ID,
+  storageBucket: extra.STORAGE_BUCKET,
+  messagingSenderId: extra.MESSAGING_SENDER_ID,
+  appId: extra.APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
